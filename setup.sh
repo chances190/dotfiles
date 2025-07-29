@@ -17,21 +17,33 @@ else
 fi
 
 packages=(
+    uutils-coreutils
     git
+    neofetch
     micro
     python
     reflector
     stow
     zsh
-)
-
-aur_packages=(
-    neofetch
+    zsh-autosuggestions 
+    zsh-fast-syntax-highlighting
+    zsh-shift-select
+    fzf
+    fzf-tab-git
+    starship
+    ripgrep
+    zoxide
+    eza
+    bat
+    curlies
+    tealdeer
+    fd
+    hyperfine
 )
 
 # Install all packages (official & AUR) in one go
 echo "Installing Packages..."
-paru -S --noconfirm --needed "${packages[@]}" "${aur_packages[@]}"
+paru -S --noconfirm --needed "${packages[@]}"
 
 
 source ./handle_ssh.sh && decrypt_ssh
