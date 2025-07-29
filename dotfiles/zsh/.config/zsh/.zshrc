@@ -158,6 +158,7 @@ alias notepad='notepad.exe'
 alias grep='ripgrep'
 alias cd='z'
 alias cdi='zi'
+alias rm='echo "Please use trash instead (or override with \\\rm)" >&2; return 1;'
 
 #----------------------------------------------------------------
 # Plugins =======================================================

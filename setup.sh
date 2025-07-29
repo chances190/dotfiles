@@ -1,25 +1,25 @@
 #!/bin/bash
 set -euo pipefail
 
-sudo pacman -Syu --noconfirm
+sudo pacman -Syu --noconfirm 
 
-# Set up paru (AUR helper)
+# Install paru (AUR helper) and verify
 if ! command -v paru &> /dev/null; then
     echo "Installing paru..."
-    sudo pacman -S --noconfirm --needed base-devel 
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
-    makepkg -si --noconfirm
-    cd ..
-    rm -rf paru
+    sudo pacman -S --noconfirm --needed git base-devel
+    git clone https://aur.archlinux.org/paru.git /tmp/paru
+    cd /tmp/paru
+    makepkg -si --noconfirm || { echo "Failed to build/install paru."; exit 1; }
+    cd - >/dev/null
+    rm -rf /tmp/paru
 else
     echo "paru is already installed."
 fi
 
 packages=(
     uutils-coreutils
-    git
-    neofetch
+    unifetch
+    tree
     micro
     python
     reflector
@@ -27,7 +27,7 @@ packages=(
     zsh
     zsh-autosuggestions 
     zsh-fast-syntax-highlighting
-    zsh-shift-select
+    # zsh-shift-select # Not in the AUR yet
     fzf
     fzf-tab-git
     starship
@@ -35,16 +35,26 @@ packages=(
     zoxide
     eza
     bat
-    curlies
+    curlie
     tealdeer
     fd
     hyperfine
+    trash-cli
 )
 
 # Install all packages (official & AUR) in one go
 echo "Installing Packages..."
 paru -S --noconfirm --needed "${packages[@]}"
 
+# # Change default shell to zsh if installed
+# if which zsh &> /dev/null; then
+#     echo "Changing default shell to zsh..."
+#     chsh -s "$(which zsh)"
+#     exec zsh
+# else
+#     echo "zsh was not installed properly, aborting."
+#     exit 1
+# fi
 
 source ./handle_ssh.sh && decrypt_ssh
 
