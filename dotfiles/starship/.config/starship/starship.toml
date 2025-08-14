@@ -2,7 +2,7 @@
 
 # $all is shorthand for $username$hostname$localip$shlvl$singularity$kubernetes$nats$directory$vcsh$fossil_branch$fossil_metrics$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$pijul_channel$docker_context$package$bun$c$cmake$cobol$cpp$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$gleam$golang$gradle$haskell$haxe$helm$java$julia$kotlin$lua$mojo$nim$nodejs$ocaml$odin$opa$perl$php$pulumi$purescript$python$quarto$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$typst$vlang$vagrant$zig$buf$guix_shell$nix_shell$conda$pixi$meson$spack$memory_usage$aws$gcloud$openstack$azure$direnv$env_var$mise$crystal$custom$sudo$cmd_duration$line_break$jobs$battery$time$status$container$netns$os$shell$character
 "$schema" = "https://starship.rs/config-schema.json"
-format = "$os$all $fill$cmd_duration $line_break$character"
+format = "$os$all $fill $cmd_duration$line_break$character"
 right_format = ""
 scan_timeout = 30
 command_timeout = 500
@@ -396,7 +396,7 @@ detect_env_vars = []
 [gcloud.project_aliases]
 
 [git_branch]
-format = '[$symbol $branch(:$remote_branch)]($style)'
+format = '[$symbol $branch(:$remote_branch)]($style) '
 symbol = "git"
 style = "bold purple"
 truncation_length = 9223372036854775807
@@ -437,7 +437,7 @@ format = '\([$state($progress_current/$progress_total)]($style)\) '
 disabled = false
 
 [git_status]
-format = '( [\(($ahead_behind|)$conflicted$untracked$stashed$modified$staged$renamed$deleted\)]($style) )'
+format = '([\(($ahead_behind|)$conflicted$untracked$stashed$modified$staged$renamed$deleted\)]($style) )'
 style = "bold purple"
 ahead = '[∧${count}](bold gren)'
 behind = '[∨${count}](bold yellow)'
@@ -823,62 +823,56 @@ style = "bold yellow"
 disabled = false
 
 [os]
-format = '[$symbol]($style)'
-style = "bold white"
-disabled = true
+format = '[\[$symbol\]]($style)'
+style = "white"
+disabled = false
 
 [os.symbols]
-AIX = "aix "
-Alpaquita = "alq "
-AlmaLinux = "alma "
-Alpine = "alp "
-Amazon = "amz "
-Android = "andr "
-Arch = "arch "
-Artix = "atx "
-Bluefin = "blfn "
-CachyOS = "cach "
-CentOS = "cent "
-Debian = "deb "
-DragonFly = "dfbsd "
-Emscripten = "emsc "
-EndeavourOS = "endv "
-Fedora = "fedora "
-FreeBSD = "fbsd "
-Garuda = "garuda "
-Gentoo = "gentoo "
-HardenedBSD = "hbsd "
-Illumos = "lum "
-Kali = "kali "
-Linux = "lnx "
-Mabox = "mbox "
-Macos = "mac "
-Manjaro = "mjo "
-Mariner = "mrn "
-MidnightBSD = "mid "
-Mint = "mint "
-NetBSD = "nbsd "
-NixOS = "nix "
-Nobara = "nbra "
-OpenBSD = "obsd "
-OpenCloudOS = "ocos "
-openEuler = "oeul "
-openSUSE = "osuse "
-OracleLinux = "orac "
-Pop = "pop "
-Raspbian = "rasp "
-Redhat = "rhl "
-RedHatEnterprise = "rhel "
-RockyLinux = "rky "
-Redox = "redox "
-Solus = "sol "
-SUSE = "suse "
-Ubuntu = "ubntu "
-Ultramarine = "ultm "
-Unknown = "unknown "
-Uos = "uos "
-Void = "void "
-Windows = "win "
+Alpaquita = ""
+Alpine = ""
+AlmaLinux = ""
+Amazon = ""
+Android = ""
+Arch = ""
+Artix = ""
+CachyOS = ""
+CentOS = ""
+Debian = ""
+DragonFly = ""
+Emscripten = ""
+EndeavourOS = ""
+Fedora = ""
+FreeBSD = ""
+Garuda = "󰛓"
+Gentoo = ""
+HardenedBSD = "󰞌"
+Illumos = "󰈸"
+Kali = ""
+Linux = ""
+Mabox = ""
+Macos = ""
+Manjaro = ""
+Mariner = ""
+MidnightBSD = ""
+Mint = ""
+NetBSD = ""
+NixOS = ""
+Nobara = ""
+OpenBSD = "󰈺"
+openSUSE = ""
+OracleLinux = "󰌷"
+Pop = ""
+Raspbian = ""
+Redhat = ""
+RedHatEnterprise = ""
+RockyLinux = ""
+Redox = "󰀘"
+Solus = "󰠳"
+SUSE = ""
+Ubuntu = ""
+Unknown = ""
+Void = ""
+Windows = "󰍲"
 
 [package]
 format = '\[[$symbol $version]($style)\]'
