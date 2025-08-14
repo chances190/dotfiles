@@ -4,8 +4,8 @@
 "$schema" = "https://starship.rs/config-schema.json"
 format = "$os$all $fill $cmd_duration$line_break$character"
 right_format = ""
-scan_timeout = 30
-command_timeout = 500
+scan_timeout = 90
+command_timeout = 1000
 add_newline = true
 follow_symlinks = true
 
@@ -48,7 +48,7 @@ style = "red bold"
 
 [buf]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "buf"
 style = "bold blue"
 disabled = false
@@ -62,7 +62,7 @@ detect_folders = []
 
 [bun]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "bun"
 style = "bold red"
 disabled = false
@@ -76,7 +76,7 @@ detect_folders = []
 
 [c]
 format = '\[[$symbol( $version(-$name))]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 style = "149 bold"
 symbol = "C"
 disabled = false
@@ -113,7 +113,7 @@ disabled = false
 
 [cmake]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "cmake"
 style = "bold blue"
 disabled = false
@@ -126,7 +126,7 @@ detect_folders = []
 
 [cmd_duration]
 min_time = 2000
-format = '\[[ $duration]($style)\]'
+format = '[ $duration]($style) '
 style = "yellow bold"
 show_milliseconds = false
 disabled = false
@@ -135,7 +135,7 @@ min_time_to_notify = 45000
 
 [cobol]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "cobol"
 style = "bold blue"
 disabled = false
@@ -164,7 +164,7 @@ disabled = false
 
 [cpp]
 format = '\[[$symbol( $version(-$name))]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 style = "149 bold"
 symbol = "C++"
 disabled = false
@@ -198,7 +198,7 @@ commands = [
 
 [crystal]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "cr"
 style = "bold red"
 disabled = false
@@ -209,7 +209,7 @@ detect_folders = []
 [daml]
 symbol = "Λ"
 format = "via [$symbol( $version)]($style)"
-version_format = "v${minor}"
+version_format = "v${raw}"
 style = "bold cyan"
 disabled = false
 detect_extensions = []
@@ -218,7 +218,7 @@ detect_folders = []
 
 [dart]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "dart"
 style = "bold blue"
 disabled = false
@@ -232,7 +232,7 @@ detect_folders = [".dart_tool"]
 
 [deno]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "deno"
 style = "green bold"
 disabled = false
@@ -259,7 +259,7 @@ style = "cyan bold"
 disabled = false
 read_only = " ro"
 read_only_style = "red"
-truncation_symbol = ".../"
+truncation_symbol = "…/"
 home_symbol = "~"
 use_os_path_sep = true
 
@@ -296,7 +296,7 @@ detect_folders = []
 
 [dotnet]
 format = '\[[$symbol( $version)(🎯 $tfm)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = ".NET"
 style = "blue bold"
 heuristic = true
@@ -317,7 +317,7 @@ detect_folders = []
 
 [elixir]
 format = '\[[$symbol( $version \(OTP $otp_version\))]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "exs"
 style = "bold purple"
 disabled = false
@@ -327,7 +327,7 @@ detect_folders = []
 
 [elm]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "elm"
 style = "cyan bold"
 disabled = false
@@ -343,7 +343,7 @@ detect_folders = ["elm-stuff"]
 
 [erlang]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = ""
 style = "bold red"
 disabled = false
@@ -356,7 +356,7 @@ detect_folders = []
 
 [fennel]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "fnl"
 style = "bold green"
 disabled = true
@@ -437,7 +437,7 @@ format = '\([$state($progress_current/$progress_total)]($style)\) '
 disabled = false
 
 [git_status]
-format = '([\(($ahead_behind|)$conflicted$untracked$stashed$modified$staged$renamed$deleted\)]($style) )'
+format = '([\(($ahead_behind )($conflicted$untracked$stashed )$modified$staged$renamed$deleted\)]($style) )'
 style = "bold purple"
 ahead = '[∧${count}](bold gren)'
 behind = '[∨${count}](bold yellow)'
@@ -446,7 +446,7 @@ conflicted = '[=${count}](bold red)'
 untracked = '[?${count}](bold green)'
 stashed = '[$stashed](bold yellow)'
 modified = '[!${count}](bold yellow)'
-staged = ' [+${count}](bold green)'
+staged = '[+${count}](bold green)'
 renamed = '[r${count}](bold yellow)'
 deleted = '[-${count}](bold red)'
 typechanged = ''
@@ -456,7 +456,7 @@ use_git_executable = true
 
 [gleam]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "gleam"
 style = "bold #FFAFF3"
 disabled = false
@@ -466,7 +466,7 @@ detect_folders = []
 
 [golang]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "go"
 style = "bold cyan"
 disabled = false
@@ -485,7 +485,7 @@ detect_folders = ["Godeps"]
 
 [gradle]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "gradle"
 style = "bold bright-cyan"
 disabled = false
@@ -505,7 +505,7 @@ disabled = false
 
 [haskell]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "haskell"
 style = "bold purple"
 disabled = false
@@ -522,7 +522,7 @@ detect_folders = []
 
 [haxe]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "⌘"
 style = "bold fg:202"
 disabled = false
@@ -542,7 +542,7 @@ detect_folders = [
 
 [helm]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "helm"
 style = "bold white"
 disabled = false
@@ -574,7 +574,7 @@ disabled = false
 
 [java]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 style = "red dimmed"
 symbol = "java"
 detect_extensions = [
@@ -608,7 +608,7 @@ disabled = false
 
 [julia]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "jl"
 style = "bold purple"
 disabled = false
@@ -621,7 +621,7 @@ detect_folders = []
 
 [kotlin]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "kt"
 style = "bold blue"
 kotlin_binary = "kotlin"
@@ -658,7 +658,7 @@ disabled = true
 
 [lua]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "lua"
 style = "bold blue"
 lua_binary = "lua"
@@ -722,7 +722,7 @@ disabled = false
 
 [nim]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "nim"
 style = "yellow bold"
 disabled = false
@@ -746,7 +746,7 @@ heuristic = false
 
 [nodejs]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "nodejs"
 style = "bold green"
 disabled = false
@@ -771,7 +771,7 @@ detect_folders = ["node_modules"]
 
 [ocaml]
 format = 'via [$symbol( $version)(\($switch_indicator$switch_name\) )]($style)'
-version_format = "v${minor}"
+version_format = "v${raw}"
 global_switch_indicator = ""
 local_switch_indicator = "*"
 symbol = "ml"
@@ -808,7 +808,7 @@ detect_folders = []
 
 [opa]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "opa"
 style = "bold blue"
 disabled = false
@@ -823,7 +823,7 @@ style = "bold yellow"
 disabled = false
 
 [os]
-format = '[\[$symbol\]]($style)'
+format = '[\[$symbol\]]($style) '
 style = "white"
 disabled = false
 
@@ -880,11 +880,11 @@ symbol = "pkg"
 style = "208 bold"
 display_private = false
 disabled = false
-version_format = "v${minor}"
+version_format = "v${raw}"
 
 [perl]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "pl"
 style = "149 bold"
 disabled = false
@@ -906,7 +906,7 @@ detect_folders = []
 
 [php]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "php"
 style = "147 bold"
 disabled = false
@@ -939,7 +939,7 @@ detect_folders = [".pixi"]
 
 [pulumi]
 format = '\[[$symbol $stack]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = ""
 style = "bold 5"
 disabled = false
@@ -947,7 +947,7 @@ search_upwards = true
 
 [purescript]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "purs"
 style = "bold white"
 disabled = false
@@ -968,7 +968,7 @@ python_binary = [
     ["python2"],
 ]
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 style = "yellow bold"
 symbol = "py"
 disabled = false
@@ -990,7 +990,7 @@ detect_env_vars = ["VIRTUAL_ENV"]
 
 [quarto]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "quarto"
 style = "bold #75AADB"
 disabled = false
@@ -1016,7 +1016,7 @@ detect_folders = []
 
 [red]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "red"
 style = "red bold"
 disabled = false
@@ -1029,7 +1029,7 @@ detect_folders = []
 
 [rlang]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 style = "blue bold"
 symbol = "r"
 disabled = false
@@ -1045,7 +1045,7 @@ detect_folders = [".Rproj.user"]
 
 [ruby]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "rb"
 style = "bold red"
 disabled = false
@@ -1062,7 +1062,7 @@ detect_variables = [
 
 [rust]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "rs"
 style = "bold red"
 disabled = false
@@ -1072,7 +1072,7 @@ detect_folders = []
 
 [scala]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 disabled = false
 style = "red bold"
 symbol = "scala"
@@ -1120,7 +1120,7 @@ disabled = false
 
 [solidity]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}.${minor}.${patch}"
+version_format = "v${raw}.${minor}.${patch}"
 disabled = false
 style = "bold blue"
 symbol = "solidity"
@@ -1160,7 +1160,7 @@ disabled = true
 
 [swift]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "swift"
 style = "bold 202"
 disabled = false
@@ -1170,7 +1170,7 @@ detect_folders = []
 
 [terraform]
 format = '\[[$symbol $workspace]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "terraform"
 style = "bold 105"
 disabled = false
@@ -1192,7 +1192,7 @@ time_range = "-"
 
 [typst]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "typst"
 style = "bold #0093A7"
 disabled = false
@@ -1212,7 +1212,7 @@ disabled = false
 
 [vagrant]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "vagrant"
 style = "cyan bold"
 disabled = false
@@ -1228,7 +1228,7 @@ disabled = false
 
 [vlang]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "vlang"
 style = "blue bold"
 disabled = false
@@ -1242,7 +1242,7 @@ detect_folders = []
 
 [zig]
 format = '\[[$symbol( $version)]($style)\]'
-version_format = "v${minor}"
+version_format = "v${raw}"
 symbol = "zig"
 style = "bold yellow"
 disabled = false
