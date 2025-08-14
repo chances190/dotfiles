@@ -27,7 +27,7 @@ packages=(
     zsh
     zsh-autosuggestions 
     zsh-fast-syntax-highlighting
-    # zsh-shift-select # Not in the AUR yet
+    # zsh-shift-select # Not in the AUR yet. TODO: Submit PKGBUILD to the AUR
     fzf
     fzf-tab-git
     starship

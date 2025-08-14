@@ -12,6 +12,8 @@ follow_symlinks = true
 [palettes]
 
 [profiles]
+transient="$character"
+rtransient="$status$cmd_duration$time" # This won't work since those are disabled. TODO: Fix
 
 [aws]
 format = '\[[$symbol( $profile)(\($region\))(\[$duration\])]($style)\]'
