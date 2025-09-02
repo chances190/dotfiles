@@ -151,11 +151,11 @@ zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 # Aliases ======================================================
 
 alias cat='bat'
-alias curl='curlies'
+alias curl='curlie'
 alias find='fd'
 alias ls='eza'
 alias notepad='notepad.exe'
-alias grep='ripgrep'
+alias grep='rg'
 alias cd='z'
 alias cdi='zi'
 alias rm='echo "Please use trash instead (or override with \\\rm)" >&2; return 1;'
