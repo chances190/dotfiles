@@ -435,7 +435,7 @@ bisect = "BISECTING"
 am = "AM"
 am_or_rebase = "AM/REBASE"
 style = "bold red"
-format = '\([$state($progress_current/$progress_total)]($style)\) '
+format = '[\([$state($progress_current/$progress_total)]($style)\)](bold purple) '
 disabled = false
 
 [git_status]
@@ -969,7 +969,7 @@ python_binary = [
     ["python3"],
     ["python2"],
 ]
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+format = '\[[${symbol}${pyenv_prefix}( ${version})( \($virtualenv\))]($style)\]'
 version_format = "v${raw}"
 style = "yellow bold"
 symbol = "py"
