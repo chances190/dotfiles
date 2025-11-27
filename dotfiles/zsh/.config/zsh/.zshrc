@@ -154,11 +154,12 @@ alias cat='bat'
 alias curl='curlie'
 alias find='fd'
 alias ls='eza'
-alias notepad='notepad.exe'
+# alias notepad='notepad.exe' # If WSL
 alias grep='rg'
 alias cd='z'
 alias cdi='zi'
-alias rm='echo "Please use trash instead (or override with \\\rm)" >&2; return 1;'
+alias rm='echo "Use '\''trash'\'' instead (or override with \\\rm)" >&2; false'
+alias trm='trash'
 
 #----------------------------------------------------------------
 # Plugins =======================================================

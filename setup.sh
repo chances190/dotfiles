@@ -46,15 +46,15 @@ packages=(
 echo "Installing Packages..."
 paru -S --noconfirm --needed "${packages[@]}"
 
-# # Change default shell to zsh if installed
-# if which zsh &> /dev/null; then
-#     echo "Changing default shell to zsh..."
-#     chsh -s "$(which zsh)"
-#     exec zsh
-# else
-#     echo "zsh was not installed properly, aborting."
-#     exit 1
-# fi
+# Change default shell to zsh if installed
+if which zsh &> /dev/null; then
+    echo "Changing default shell to zsh..."
+    chsh -s "$(which zsh)"
+    exec zsh
+else
+    echo "zsh was not installed properly, aborting."
+    exit 1
+fi
 
 source ./handle_ssh.sh && decrypt_ssh
 

@@ -1,7 +1,10 @@
 [user]
-	name = Valter Sanches
-	email = 69327389+chances190@users.noreply.github.com
+	name = chances190
+	email = vsmn@cin.ufpe.br
 [core]
 	editor = code
 [credential]
-	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+	helper = /usr/bin/git-credential-manager
+	# helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe # If WSL
+
+	credentialStore = secretservice
