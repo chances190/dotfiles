@@ -71,7 +71,7 @@ if [[ -n "$modified_files" ]]; then
     read -r -p "Overwrite local dotfiles? [y/N] " reply
     if [[ "$reply" =~ ^[Yy]$ ]]; then
         echo "Overwriting local changes..."
-        git reset --hard HEAD -- dotfiles
+        git checkout -- dotfiles/
     fi
 fi
 
