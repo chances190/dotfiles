@@ -10,7 +10,7 @@ if ! command -v paru &> /dev/null; then
     git clone https://aur.archlinux.org/paru.git /tmp/paru
     cd /tmp/paru
     makepkg -si --noconfirm || { echo "Failed to build/install paru."; exit 1; }
-    cd - >/dev/null
+    cd -
     rm -rf /tmp/paru
 else
     echo "paru is already installed."
@@ -56,22 +56,5 @@ else
     exit 1
 fi
 
-source ./handle_ssh.sh && decrypt_ssh
-
-# Apply GNU Stow to your dotfiles
-cd dotfiles
-stow --target="$HOME" --ignore '.*encrypted/.*' --dotfiles --no-folding --adopt --restow *
-cd ..
-
-# Detect modified files in the dotfiles folder
-modified_files=$(git status --porcelain -- dotfiles | awk '{print $2}' | sed 's|^dotfiles/||')
-if [[ -n "$modified_files" ]]; then
-    echo "The following dotfiles have local changes:"
-    printf '%s\n' "${modified_files}"
-    read -r -p "Overwrite local dotfiles? [y/N] " reply
-    if [[ "$reply" =~ ^[Yy]$ ]]; then
-        echo "Overwriting local changes..."
-        git checkout -- dotfiles/
-    fi
-fi
+source sync.sh
 

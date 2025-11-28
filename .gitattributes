@@ -1,0 +1,2 @@
+# Encrypt SSH private keys and other sensitive files with git-crypt
+dotfiles/secrets/** filter=git-crypt diff=git-crypt
