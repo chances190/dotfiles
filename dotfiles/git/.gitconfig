@@ -2,7 +2,7 @@
 	name = chances190
 	email = vsmn@cin.ufpe.br
 [core]
-	editor = code
+	editor = micro
 [credential]
 	helper = /usr/bin/git-credential-manager
 	# helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe # If WSL
