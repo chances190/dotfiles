@@ -161,6 +161,15 @@ alias cdi='zi'
 alias rm='echo "Use '\''trash'\'' instead (or override with \\\rm)" >&2; false'
 alias trm='trash'
 
+function code-alt() {
+  /usr/bin/code \
+--extensions-dir ~/.local/share/vscode/extensions \
+--user-data-dir ~/.local/share/vscode/data \
+    "$@"
+}
+compdef code-alt=code
+alias code='code-alt'
+
 #----------------------------------------------------------------
 # Plugins =======================================================
 
