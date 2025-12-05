@@ -1,0 +1,6 @@
+background-opacity = 0.8
+copy-on-select = false
+selection-invert-fg-bg = true
+cursor-style = bar
+mouse-shift-capture = always
+theme = Monokai Pro Machine
