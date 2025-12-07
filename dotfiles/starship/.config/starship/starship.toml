@@ -18,7 +18,7 @@ rtransient="$status$cmd_duration$time" # This won't work since those are disable
 [aws]
 format = '\[[$symbol( $profile)(\($region\))(\[$duration\])]($style)\]'
 symbol = "aws"
-style = "bold yellow"
+style = "yellow"
 disabled = false
 expiration_symbol = "X"
 force_display = false
@@ -30,7 +30,7 @@ force_display = false
 [azure]
 format = '\[[$symbol( $subscription)]($style)\]'
 symbol = "az"
-style = "blue bold"
+style = "blue"
 disabled = true
 
 [azure.subscription_aliases]
@@ -46,13 +46,13 @@ format = "[$symbol $percentage]($style) "
 
 [[battery.display]]
 threshold = 10
-style = "red bold"
+style = "red"
 
 [buf]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "buf"
-style = "bold blue"
+style = "blue"
 disabled = false
 detect_extensions = []
 detect_files = [
@@ -66,7 +66,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "bun"
-style = "bold red"
+style = "red"
 disabled = false
 detect_extensions = []
 detect_files = [
@@ -79,7 +79,7 @@ detect_folders = []
 [c]
 format = '\[[$symbol( $version(-$name))]($style)\]'
 version_format = "v${raw}"
-style = "149 bold"
+style = "149"
 symbol = "C"
 disabled = false
 detect_extensions = [
@@ -105,19 +105,19 @@ commands = [
 
 [character]
 format = "$symbol "
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold green)"
-vimcmd_visual_symbol = "[❮](bold yellow)"
-vimcmd_replace_symbol = "[❮](bold purple)"
-vimcmd_replace_one_symbol = "[❮](bold purple)"
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+vimcmd_visual_symbol = "[❮](yellow)"
+vimcmd_replace_symbol = "[❮](purple)"
+vimcmd_replace_one_symbol = "[❮](purple)"
 disabled = false
 
 [cmake]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "cmake"
-style = "bold blue"
+style = "blue"
 disabled = false
 detect_extensions = []
 detect_files = [
@@ -129,7 +129,7 @@ detect_folders = []
 [cmd_duration]
 min_time = 2000
 format = '[ $duration]($style) '
-style = "yellow bold"
+style = "yellow"
 show_milliseconds = false
 disabled = false
 show_notifications = false
@@ -139,7 +139,7 @@ min_time_to_notify = 45000
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "cobol"
-style = "bold blue"
+style = "blue"
 disabled = false
 detect_extensions = [
     "cbl",
@@ -153,7 +153,7 @@ detect_folders = []
 [conda]
 format = '\[[$symbol $environment]($style)\]'
 symbol = "conda"
-style = "green bold"
+style = "green"
 ignore_base = true
 detect_env_vars = ["!PIXI_ENVIRONMENT_NAME"]
 disabled = false
@@ -161,13 +161,13 @@ disabled = false
 [container]
 format = '[$symbol \[$name\]]($style) '
 symbol = "container"
-style = "red bold dimmed"
+style = "red dimmed"
 disabled = false
 
 [cpp]
 format = '\[[$symbol( $version(-$name))]($style)\]'
 version_format = "v${raw}"
-style = "149 bold"
+style = "149"
 symbol = "C++"
 disabled = false
 detect_extensions = [
@@ -202,7 +202,7 @@ commands = [
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "cr"
-style = "bold red"
+style = "red"
 disabled = false
 detect_extensions = ["cr"]
 detect_files = ["shard.yml"]
@@ -212,7 +212,7 @@ detect_folders = []
 symbol = "Λ"
 format = "via [$symbol( $version)]($style)"
 version_format = "v${raw}"
-style = "bold cyan"
+style = "cyan"
 disabled = false
 detect_extensions = []
 detect_files = ["daml.yaml"]
@@ -222,7 +222,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "dart"
-style = "bold blue"
+style = "blue"
 disabled = false
 detect_extensions = ["dart"]
 detect_files = [
@@ -236,7 +236,7 @@ detect_folders = [".dart_tool"]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "deno"
-style = "green bold"
+style = "green"
 disabled = false
 detect_extensions = []
 detect_files = [
@@ -257,7 +257,7 @@ fish_style_pwd_dir_length = 0
 use_logical_path = true
 format = "[$path]($style)[$read_only]($read_only_style) "
 repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
-style = "yellow bold"
+style = "yellow"
 disabled = false
 read_only = " ro"
 read_only_style = "red"
@@ -270,7 +270,7 @@ use_os_path_sep = true
 [direnv]
 format = "[$symbol $loaded/$allowed]($style) "
 symbol = "direnv"
-style = "bold bright-yellow"
+style = "bright-yellow"
 disabled = true
 detect_extensions = []
 detect_env_vars = ["DIRENV_FILE"]
@@ -284,7 +284,7 @@ unloaded_msg = "not loaded"
 
 [docker_context]
 symbol = "docker"
-style = "blue bold"
+style = "blue"
 format = '\[[$symbol $context]($style)\]'
 only_with_files = true
 disabled = false
@@ -300,7 +300,7 @@ detect_folders = []
 format = '\[[$symbol( $version)(🎯 $tfm)]($style)\]'
 version_format = "v${raw}"
 symbol = ".NET"
-style = "blue bold"
+style = "blue"
 heuristic = true
 disabled = false
 detect_extensions = [
@@ -321,7 +321,7 @@ detect_folders = []
 format = '\[[$symbol( $version \(OTP $otp_version\))]($style)\]'
 version_format = "v${raw}"
 symbol = "exs"
-style = "bold purple"
+style = "purple"
 disabled = false
 detect_extensions = []
 detect_files = ["mix.exs"]
@@ -331,7 +331,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "elm"
-style = "cyan bold"
+style = "cyan"
 disabled = false
 detect_extensions = ["elm"]
 detect_files = [
@@ -347,7 +347,7 @@ detect_folders = ["elm-stuff"]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = ""
-style = "bold red"
+style = "red"
 disabled = false
 detect_extensions = []
 detect_files = [
@@ -360,36 +360,36 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "fnl"
-style = "bold green"
+style = "green"
 disabled = true
 detect_extensions = ["fnl"]
 detect_files = []
 detect_folders = []
 
 [fill]
-style = "bold white"
+style = "white"
 symbol = "·"
 disabled = false
 
 [fossil_branch]
 format = '\[[$symbol $branch]($style)\]'
 symbol = "fossil"
-style = "bold purple"
+style = "purple"
 truncation_length = 9223372036854775807
 truncation_symbol = "…"
 disabled = true
 
 [fossil_metrics]
 format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
-added_style = "bold green"
-deleted_style = "bold red"
+added_style = "green"
+deleted_style = "red"
 only_nonzero_diffs = true
 disabled = true
 
 [gcloud]
 format = '\[[$symbol $account(@$domain)(\($region\))]($style)\]'
 symbol = "gcp"
-style = "bold blue"
+style = "blue"
 disabled = false
 detect_env_vars = []
 
@@ -398,9 +398,9 @@ detect_env_vars = []
 [gcloud.project_aliases]
 
 [git_branch]
-format = '[$symbol $branch(:$remote_branch)]($style) '
-symbol = "git"
-style = "bold blue"
+format = '[$symbol$branch(:$remote_branch)]($style) '
+symbol = "@"
+style = "blue"
 truncation_length = 9223372036854775807
 truncation_symbol = "…"
 only_attached = false
@@ -410,19 +410,19 @@ disabled = false
 
 [git_commit]
 commit_hash_length = 7
-format = '[\($tag$hash\)]($style) '
-style = "blue bold"
+format = '[\[($tag:)$hash\]]($style) '
+style = "blue"
 only_detached = true
 disabled = false
 tag_symbol = "tag "
-tag_disabled = true
+tag_disabled = false
 tag_max_candidates = 0
 
 [git_metrics]
-added_style = "bold blue"
-deleted_style = "bold red"
+added_style = "green"
+deleted_style = "red"
 only_nonzero_diffs = true
-format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
+format = "[+$added]($added_style) )([-$deleted]($deleted_style) "
 disabled = true
 ignore_submodules = false
 
@@ -434,23 +434,23 @@ cherry_pick = "CHERRY-PICKING"
 bisect = "BISECTING"
 am = "AM"
 am_or_rebase = "AM/REBASE"
-style = "bold red"
-format = '[\([$state($progress_current/$progress_total)]($style)\)](bold purple) '
+style = "red"
+format = '[\([$state($progress_current/$progress_total)]($style)\)](purple) '
 disabled = false
 
 [git_status]
 format = '([\(($ahead_behind )($conflicted$untracked$stashed )$modified$staged$renamed$deleted\)]($style) )'
-style = "bold blue"
-ahead = '[∧${count}](bold gren)'
-behind = '[∨${count}](bold yellow)'
-diverged = '[∧∨ ${ahead_count} ${behind_count}](bold red)'
-conflicted = '[=${count}](bold red)'
-untracked = '[?${count}](bold green)'
-stashed = '[$stashed](bold yellow)'
-modified = '[!${count}](bold yellow)'
-staged = '[+${count}](bold green)'
-renamed = '[r${count}](bold yellow)'
-deleted = '[-${count}](bold red)'
+style = "blue"
+ahead = '[∧${count}](gren)'
+behind = '[∨${count}](yellow)'
+diverged = '[∧${ahead_count}∨${behind_count}](red)'
+conflicted = '[=${count}](red)'
+untracked = '[?${count}](green)'
+stashed = '[$stashed](yellow)'
+modified = '[!${count}](yellow)'
+staged = '[+${count}](green)'
+renamed = '[r${count}](yellow)'
+deleted = '[-${count}](red)'
 typechanged = ''
 ignore_submodules = false
 disabled = false
@@ -460,7 +460,7 @@ use_git_executable = true
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "gleam"
-style = "bold #FFAFF3"
+style = "#FFAFF3"
 disabled = false
 detect_extensions = ["gleam"]
 detect_files = ["gleam.toml"]
@@ -470,9 +470,9 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "go"
-style = "bold cyan"
+style = "cyan"
 disabled = false
-not_capable_style = "bold red"
+not_capable_style = "red"
 detect_extensions = ["go"]
 detect_files = [
     "go.mod",
@@ -489,7 +489,7 @@ detect_folders = ["Godeps"]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "gradle"
-style = "bold bright-cyan"
+style = "bright-cyan"
 disabled = false
 recursive = false
 detect_extensions = [
@@ -502,14 +502,14 @@ detect_folders = ["gradle"]
 [guix_shell]
 format = '\[[$symbol]($style)\]'
 symbol = "guix"
-style = "yellow bold"
+style = "yellow"
 disabled = false
 
 [haskell]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "haskell"
-style = "bold purple"
+style = "purple"
 disabled = false
 detect_extensions = [
     "hs",
@@ -526,7 +526,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "⌘"
-style = "bold fg:202"
+style = "fg:202"
 disabled = false
 detect_extensions = [
     "hx",
@@ -546,7 +546,7 @@ detect_folders = [
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "helm"
-style = "bold white"
+style = "white"
 disabled = false
 detect_extensions = []
 detect_files = [
@@ -558,7 +558,7 @@ detect_folders = []
 [hg_branch]
 format = '\[[$symbol $branch]($style)\]'
 symbol = "hg"
-style = "bold purple"
+style = "purple"
 truncation_length = 9223372036854775807
 truncation_symbol = "…"
 disabled = true
@@ -569,7 +569,7 @@ ssh_symbol = "🌐 "
 trim_at = "."
 detect_env_vars = []
 format = "[$ssh_symbol$hostname]($style) in "
-style = "green dimmed bold"
+style = "green dimmed"
 disabled = false
 
 [hostname.aliases]
@@ -605,14 +605,14 @@ symbol_threshold = 1
 number_threshold = 2
 format = "[$symbol $number]($style) "
 symbol = "✦"
-style = "bold blue"
+style = "blue"
 disabled = false
 
 [julia]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "jl"
-style = "bold purple"
+style = "purple"
 disabled = false
 detect_extensions = ["jl"]
 detect_files = [
@@ -625,7 +625,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "kt"
-style = "bold blue"
+style = "blue"
 kotlin_binary = "kotlin"
 disabled = false
 detect_extensions = [
@@ -637,7 +637,7 @@ detect_folders = []
 
 [kubernetes]
 format = '\[[$symbol $context( \($namespace\))]($style)\]'
-style = "cyan bold"
+style = "cyan"
 disabled = true
 detect_extensions = []
 detect_files = []
@@ -655,14 +655,14 @@ disabled = false
 [localip]
 ssh_only = true
 format = "[$localipv4]($style) "
-style = "yellow bold"
+style = "yellow"
 disabled = true
 
 [lua]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "lua"
-style = "bold blue"
+style = "blue"
 lua_binary = "lua"
 disabled = false
 detect_extensions = ["lua"]
@@ -672,20 +672,20 @@ detect_folders = ["lua"]
 [memory_usage]
 threshold = 75
 format = '\[$symbol[$ram( | $swap)]($style)\]'
-style = "white bold dimmed"
+style = "white dimmed"
 symbol = "memory"
 disabled = true
 
 [meson]
 format = '\[[$symbol $project]($style)\]'
 symbol = "⬢"
-style = "blue bold"
+style = "blue"
 disabled = false
 
 [mise]
 format = "[$symbol $health]($style) "
 symbol = "mise"
-style = "bold purple"
+style = "purple"
 disabled = true
 detect_extensions = []
 detect_files = [
@@ -701,7 +701,7 @@ unhealthy_symbol = "unhealthy"
 [mojo]
 format = '\[[$symbol( $version)]($style)\]'
 symbol = "mojo"
-style = "bold 208"
+style = "208"
 disabled = false
 detect_extensions = [
     "mojo",
@@ -713,20 +713,20 @@ detect_folders = []
 [nats]
 format = "[$symbol( $name)]($style)"
 symbol = "nats"
-style = "bold purple"
+style = "purple"
 disabled = true
 
 [netns]
 format = '[$symbol \[$name\]]($style) '
 symbol = "🛜"
-style = "blue bold dimmed"
+style = "blue dimmed"
 disabled = false
 
 [nim]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "nim"
-style = "yellow bold"
+style = "yellow"
 disabled = false
 detect_extensions = [
     "nim",
@@ -739,7 +739,7 @@ detect_folders = []
 [nix_shell]
 format = '\[[$symbol $state( \($name\))]($style)\]'
 symbol = "nixsh"
-style = "bold blue"
+style = "blue"
 impure_msg = "impure"
 pure_msg = "pure"
 unknown_msg = ""
@@ -750,9 +750,9 @@ heuristic = false
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "nodejs"
-style = "bold green"
+style = "green"
 disabled = false
-not_capable_style = "bold red"
+not_capable_style = "red"
 detect_extensions = [
     "js",
     "mjs",
@@ -777,7 +777,7 @@ version_format = "v${raw}"
 global_switch_indicator = ""
 local_switch_indicator = "*"
 symbol = "ml"
-style = "bold yellow"
+style = "yellow"
 disabled = false
 detect_extensions = [
     "opam",
@@ -802,7 +802,7 @@ detect_folders = [
 format = '\[[$symbol( $version)]($style)\]'
 show_commit = false
 symbol = "Ø"
-style = "bold bright-blue"
+style = "bright-blue"
 disabled = false
 detect_extensions = ["odin"]
 detect_files = []
@@ -812,7 +812,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "opa"
-style = "bold blue"
+style = "blue"
 disabled = false
 detect_extensions = ["rego"]
 detect_files = []
@@ -821,7 +821,7 @@ detect_folders = []
 [openstack]
 format = '\[[$symbol $cloud(\($project\))]($style)\]'
 symbol = "openstack"
-style = "bold yellow"
+style = "yellow"
 disabled = false
 
 [os]
@@ -879,7 +879,7 @@ Windows = "󰍲"
 [package]
 format = '\[[$symbol $version]($style)\]'
 symbol = "pkg"
-style = "208 bold"
+style = "208"
 display_private = false
 disabled = false
 version_format = "v${raw}"
@@ -888,7 +888,7 @@ version_format = "v${raw}"
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "pl"
-style = "149 bold"
+style = "149"
 disabled = false
 detect_extensions = [
     "pl",
@@ -910,7 +910,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "php"
-style = "147 bold"
+style = "147"
 disabled = false
 detect_extensions = ["php"]
 detect_files = [
@@ -922,7 +922,7 @@ detect_folders = []
 [pijul_channel]
 format = '\[[$symbol $channel]($style)\]'
 symbol = "pijul"
-style = "bold purple"
+style = "purple"
 truncation_length = 9223372036854775807
 truncation_symbol = "…"
 disabled = true
@@ -930,7 +930,7 @@ disabled = true
 [pixi]
 format = '\[[$symbol $version( $environment)]($style)\]'
 symbol = "pixi"
-style = "yellow bold"
+style = "yellow"
 disabled = false
 detect_extensions = []
 detect_files = [
@@ -943,7 +943,7 @@ detect_folders = [".pixi"]
 format = '\[[$symbol $stack]($style)\]'
 version_format = "v${raw}"
 symbol = ""
-style = "bold 5"
+style = "5"
 disabled = false
 search_upwards = true
 
@@ -951,7 +951,7 @@ search_upwards = true
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "purs"
-style = "bold white"
+style = "white"
 disabled = false
 detect_extensions = ["purs"]
 detect_files = [
@@ -971,7 +971,7 @@ python_binary = [
 ]
 format = '\[[${symbol}${pyenv_prefix}( ${version})( \($virtualenv\))]($style)\]'
 version_format = "v${raw}"
-style = "yellow bold"
+style = "yellow"
 symbol = "py"
 disabled = false
 detect_extensions = [
@@ -994,7 +994,7 @@ detect_env_vars = ["VIRTUAL_ENV"]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "quarto"
-style = "bold #75AADB"
+style = "#75AADB"
 disabled = false
 detect_extensions = ["qmd"]
 detect_files = ["_quarto.yml"]
@@ -1004,7 +1004,7 @@ detect_folders = []
 format = '\[[$symbol( $version-$vm_version)]($style)\]'
 version_format = "${raw}"
 symbol = "raku"
-style = "149 bold"
+style = "149"
 disabled = false
 detect_extensions = [
     "p6",
@@ -1020,7 +1020,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "red"
-style = "red bold"
+style = "red"
 disabled = false
 detect_extensions = [
     "red",
@@ -1032,7 +1032,7 @@ detect_folders = []
 [rlang]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
-style = "blue bold"
+style = "blue"
 symbol = "r"
 disabled = false
 detect_extensions = [
@@ -1049,7 +1049,7 @@ detect_folders = [".Rproj.user"]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "rb"
-style = "bold red"
+style = "red"
 disabled = false
 detect_extensions = ["rb"]
 detect_files = [
@@ -1066,7 +1066,7 @@ detect_variables = [
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "rs"
-style = "bold red"
+style = "red"
 disabled = false
 detect_extensions = ["rs"]
 detect_files = ["Cargo.toml"]
@@ -1076,7 +1076,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 disabled = false
-style = "red bold"
+style = "red"
 symbol = "scala"
 detect_extensions = [
     "sbt",
@@ -1102,7 +1102,7 @@ nu_indicator = "nu"
 xonsh_indicator = "xsh"
 cmd_indicator = "cmd"
 unknown_indicator = ""
-style = "white bold"
+style = "white"
 disabled = true
 
 [shlvl]
@@ -1111,20 +1111,20 @@ format = "[$symbol $shlvl]($style) "
 symbol = "↕shlvl"
 repeat = false
 repeat_offset = 0
-style = "bold yellow"
+style = "yellow"
 disabled = true
 
 [singularity]
 symbol = ""
 format = '[$symbol\[$env\]]($style) '
-style = "blue bold dimmed"
+style = "blue dimmed"
 disabled = false
 
 [solidity]
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}.${minor}.${patch}"
 disabled = false
-style = "bold blue"
+style = "blue"
 symbol = "solidity"
 compiler = ["solc"]
 detect_extensions = ["sol"]
@@ -1134,7 +1134,7 @@ detect_folders = []
 [spack]
 format = '\[[$symbol $environment]($style)\]'
 symbol = "spack"
-style = "blue bold"
+style = "blue"
 disabled = false
 
 [status]
@@ -1145,7 +1145,7 @@ not_executable_symbol = "🚫"
 not_found_symbol = "🔍"
 sigint_symbol = "🧱"
 signal_symbol = "⚡"
-style = "bold red"
+style = "red"
 map_symbol = false
 recognize_signal_code = true
 pipestatus = false
@@ -1156,7 +1156,7 @@ disabled = true
 [sudo]
 format = '\[[as $symbol]($style)\]'
 symbol = "sudo"
-style = "bold blue"
+style = "blue"
 allow_windows = false
 disabled = true
 
@@ -1164,7 +1164,7 @@ disabled = true
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "swift"
-style = "bold 202"
+style = "202"
 disabled = false
 detect_extensions = ["swift"]
 detect_files = ["Package.swift"]
@@ -1174,7 +1174,7 @@ detect_folders = []
 format = '\[[$symbol $workspace]($style)\]'
 version_format = "v${raw}"
 symbol = "terraform"
-style = "bold 105"
+style = "105"
 disabled = false
 detect_extensions = [
     "tf",
@@ -1186,7 +1186,7 @@ detect_folders = [".terraform"]
 
 [time]
 format = '\[[$time]($style)\]'
-style = "bold yellow"
+style = "yellow"
 use_12hr = false
 disabled = true
 utc_time_offset = "local"
@@ -1196,7 +1196,7 @@ time_range = "-"
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "typst"
-style = "bold #0093A7"
+style = "#0093A7"
 disabled = false
 detect_extensions = ["typ"]
 detect_files = ["template.typ"]
@@ -1205,8 +1205,8 @@ detect_folders = []
 [username]
 detect_env_vars = []
 format = '\[[$user]($style)\]'
-style_root = "red bold"
-style_user = "yellow bold"
+style_root = "red"
+style_user = "yellow"
 show_always = false
 disabled = false
 
@@ -1216,7 +1216,7 @@ disabled = false
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "vagrant"
-style = "cyan bold"
+style = "cyan"
 disabled = false
 detect_extensions = []
 detect_files = ["Vagrantfile"]
@@ -1224,7 +1224,7 @@ detect_folders = []
 
 [vcsh]
 symbol = "vcsh"
-style = "bold yellow"
+style = "yellow"
 format = '\[[$symbol $repo]($style)\]'
 disabled = false
 
@@ -1232,7 +1232,7 @@ disabled = false
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "vlang"
-style = "blue bold"
+style = "blue"
 disabled = false
 detect_extensions = ["v"]
 detect_files = [
@@ -1246,7 +1246,7 @@ detect_folders = []
 format = '\[[$symbol( $version)]($style)\]'
 version_format = "v${raw}"
 symbol = "zig"
-style = "bold yellow"
+style = "yellow"
 disabled = false
 detect_extensions = ["zig"]
 detect_files = []
