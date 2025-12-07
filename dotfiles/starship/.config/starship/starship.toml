@@ -257,7 +257,7 @@ fish_style_pwd_dir_length = 0
 use_logical_path = true
 format = "[$path]($style)[$read_only]($read_only_style) "
 repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
-style = "cyan bold"
+style = "yellow bold"
 disabled = false
 read_only = " ro"
 read_only_style = "red"
@@ -400,7 +400,7 @@ detect_env_vars = []
 [git_branch]
 format = '[$symbol $branch(:$remote_branch)]($style) '
 symbol = "git"
-style = "bold purple"
+style = "bold blue"
 truncation_length = 9223372036854775807
 truncation_symbol = "…"
 only_attached = false
@@ -411,7 +411,7 @@ disabled = false
 [git_commit]
 commit_hash_length = 7
 format = '[\($tag$hash\)]($style) '
-style = "green bold"
+style = "blue bold"
 only_detached = true
 disabled = false
 tag_symbol = "tag "
@@ -419,7 +419,7 @@ tag_disabled = true
 tag_max_candidates = 0
 
 [git_metrics]
-added_style = "bold green"
+added_style = "bold blue"
 deleted_style = "bold red"
 only_nonzero_diffs = true
 format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
@@ -440,7 +440,7 @@ disabled = false
 
 [git_status]
 format = '([\(($ahead_behind )($conflicted$untracked$stashed )$modified$staged$renamed$deleted\)]($style) )'
-style = "bold purple"
+style = "bold blue"
 ahead = '[∧${count}](bold gren)'
 behind = '[∨${count}](bold yellow)'
 diverged = '[∧∨ ${ahead_count} ${behind_count}](bold red)'

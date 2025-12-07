@@ -1,0 +1,97 @@
+# Monokai theme for micro editor
+# Based on Monokai Classic terminal color mapping
+
+
+# Background and foreground
+color-link default "brightwhite"
+
+# Syntax Highlighting
+
+# Comments
+color-link comment "brightblack"
+color-link comment.bright "brightgreen"
+
+# Identifiers
+color-link identifier "brightwhite"
+color-link identifier.class "brightgreen"
+color-link identifier.macro "brightyellow"
+color-link identifier.var "brightwhite"
+color-link identifier.function "brightgreen"
+color-link identifier.bright "brightgreen"
+
+# Constants
+color-link constant "brightcyan"
+color-link constant.bool "brightmagenta"
+color-link constant.bool.true "brightgreen"
+color-link constant.bool.false "brightred"
+color-link constant.number "brightmagenta"
+color-link constant.specialChar "brightmagenta"
+color-link constant.string "brightyellow"
+color-link constant.string.url "brightcyan"
+color-link constant.bright "brightyellow"
+
+# Statements (Keywords, Operators, Conditionals, Repeats)
+color-link statement "brightred"
+
+# Symbols
+color-link symbol "brightwhite"
+color-link symbol.brackets "brightred"
+color-link symbol.operator "brightred"
+color-link symbol.tag "brightyellow"
+
+# Preprocessor
+color-link preproc "brightgreen"
+color-link preproc.shebang "brightyellow"
+
+# Types
+color-link type "brightcyan"
+color-link type.keyword "brightred"
+
+# Special
+color-link special "brightwhite"
+
+# Underlined
+color-link underlined "brightcyan"
+
+# Error
+color-link error "brightred"
+
+# Todo
+color-link todo "bold black, yellow"
+
+
+# UI Elements
+
+# Selection (Visual)
+color-link selection "black,white"
+color-link statusline "bold black,white"
+color-link statusline.inactive "bold black,brightblack"
+color-link statusline.suggestions "bold black,yellow"
+#color-link tabbar ""
+#color-link tabbar.active ""
+color-link indent-char "brightblack"
+color-link line-number "brightblack"
+color-link current-line-number "white,black"
+color-link gutter-info "brightgreen"
+color-link gutter-error "brightred"
+color-link gutter-warning "brightyellow"
+color-link cursor-line "black"
+color-link color-column ",brightblack"
+color-link ignore "brightblack"
+
+# Diff Colors
+color-link diff-added "brightgreen"
+color-link diff-modified "brightyellow"
+color-link diff-deleted "brightred"
+
+# Interface
+#color-link scrollbar "brightblack"
+#color-link divider "brightblack"
+color-link message "white"
+color-link error-message "brightwhite,red"
+
+# Syntax Highlighting Extras
+color-link match-brace "bold brightred"
+color-link hlsearch "brightwhite,yellow"
+color-link tab-error "yellow"
+color-link trailingws "yellow"

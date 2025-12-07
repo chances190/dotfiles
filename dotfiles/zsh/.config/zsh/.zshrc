@@ -173,24 +173,30 @@ alias code='code-alt'
 #----------------------------------------------------------------
 # Plugins =======================================================
 
+ZSH_PLUGIN_DIR="/usr/share/zsh/plugins"
+
 # FZF Tab - Replace zsh's default completion selection menu with fzf!
-source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
+source "$ZSH_PLUGIN_DIR/fzf-tab-git/fzf-tab.plugin.zsh"
 zstyle ':fzf-tab:*' fzf-flags --bind=tab:accept,shift-tab:accept
 zstyle ':fzf-tab:*' switch-group '<' '>'
 # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # Show FZF Preview on cd
 
 # ZSH Autosuggestions - It suggests commands as you type based on history and completions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # ZSH Completions - Additional completion definitions for Zsh
 fpath=(/usr/share/zsh/site-functions/ $fpath)
 
-# ZSH Fast Syntax Hightlighting 
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# ZSH Fast Syntax Hightlighting
+FAST_WORK_DIR="$XDG_STATE_HOME/fsh"
+source "$ZSH_PLUGIN_DIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+
+FSH_THEME="$XDG_CONFIG_HOME/zsh/syntax-highlighting-themes/monokai.ini"
+zstyle -T :plugin:fast-syntax-highlighting theme "monokai" || fast-theme "$FSH_THEME" > /dev/null 2>&1  # Re-apply theme if changed
 
 # Zsh Shift Select Mode - Select text in the command line using Shift as in many text editors, browsers and other GUI programs.
-source /usr/share/zsh/plugins/zsh-shift-select/zsh-shift-select.plugin.zsh
+source "$ZSH_PLUGIN_DIR/zsh-shift-select/zsh-shift-select.plugin.zsh"
 
 #----------------------------------------------------------------
 # Shell Integrations ============================================
