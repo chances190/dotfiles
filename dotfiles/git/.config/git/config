@@ -3,8 +3,13 @@
 	email = vsmn@cin.ufpe.br
 [core]
 	editor = micro
+	pager = bat -p
 [credential]
 	helper = /usr/bin/git-credential-manager
 	# helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe # If WSL
 
 	credentialStore = secretservice
+[init]
+	defaultBranch = main
+[color]
+	pager = no
