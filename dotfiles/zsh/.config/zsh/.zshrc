@@ -139,71 +139,87 @@ autoload -Uz compinit && compinit
 _comp_options+=(globdots)  # Enable completion for hidden files
 
 eval "$(dircolors -b)" && zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # Colored completion output
-# zstyle ':completion:*' completer _extensions _complete _approximate # Completion method
+zstyle ':completion:*' completer _extensions _complete _approximate # Completion method
 zstyle ':completion:*' menu no # Menu (selection/no)
 zstyle ':completion:*' use-cache on # Cache the completions
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/.zcompcache
+zstyle ':completion:*:descriptions' format '[%d]'
 
 # bindkey -M menuselect "${key[Esc]}" send-break
 # bindkey -M menuselect "${key[Tab]}" accept-line
 
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+
 #---------------------------------------------------------------
 # Aliases ======================================================
 
-# alias cat='bat'
-alias curl='curlie'
-alias find='fd'
-alias ls='eza'
-# alias notepad='notepad.exe' # If WSL
-# alias grep='rg'
-alias cd='z'
-alias cdi='zi'
-alias rm='echo "Use '\''trash'\'' instead (or override with \\\rm)" >&2; false'
+alias cat='bat'
+alias -g -- -h='-h 2>&1 | bat -plhelp'
+alias -g -- --help='--help 2>&1 | bat -plhelp'
+
+alias ls='eza --icons --hyperlink'
+alias ll='ls -lh'
+alias lt='ls -T'
+
+alias rm='echo "Use \`trm\` instead (or override with \\\rm)" >&2; false'
 alias trm='trash'
 
-function code-alt() {
-  /usr/bin/code \
---extensions-dir ~/.local/share/vscode/extensions \
---user-data-dir ~/.local/share/vscode/data \
-    "$@"
-}
-compdef code-alt=code
-alias code='code-alt'
+alias cd='z'
+alias cdi='zi'
+
+alias curl='curlie'
+alias find='fd'
+alias grep='rg'
+
+# alias notepad='notepad.exe' # If WSL
+
+# For silly programs that don't have env vars to set directiories:
+alias zaproxy='zaproxy -dir "$XDG_DATA_HOME"/zaproxy'
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
 
 #----------------------------------------------------------------
 # Plugins =======================================================
 
-ZSH_PLUGIN_DIR="/usr/share/zsh/plugins"
+if [[ -d "$XDG_DATA_HOME"/zsh/plugins ]]; then
+    ZSH_PLUGIN_DIR="$XDG_DATA_HOME"/zsh/plugins
+else
+    ZSH_PLUGIN_DIR=/usr/share/zsh/plugins
+fi
 
 # FZF Tab - Replace zsh's default completion selection menu with fzf!
-source "$ZSH_PLUGIN_DIR/fzf-tab-git/fzf-tab.plugin.zsh"
-zstyle ':fzf-tab:*' fzf-flags --bind=tab:accept,shift-tab:accept
+source "$ZSH_PLUGIN_DIR"/fzf-tab-git/fzf-tab.plugin.zsh
+zstyle ':fzf-tab:*' fzf-flags '--bind=tab:accept,shift-tab:toggle,left-click:toggle,double-click:accept'
 zstyle ':fzf-tab:*' switch-group '<' '>'
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # Show FZF Preview on cd
+# Show FZF Preview on completions
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'if [ -d "$realpath" ]; then eza -TL 2 --icons --color=always "$realpath" | head -30; else bat --color=always --style=numbers --line-range=:30 "$realpath"; fi'
+
 
 # ZSH Autosuggestions - It suggests commands as you type based on history and completions
-source "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+source "$ZSH_PLUGIN_DIR"/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # ZSH Completions - Additional completion definitions for Zsh
 fpath=(/usr/share/zsh/site-functions/ $fpath)
 
 # ZSH Fast Syntax Hightlighting
-FAST_WORK_DIR="$XDG_STATE_HOME/fsh"
-source "$ZSH_PLUGIN_DIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-
-FSH_THEME="$XDG_CONFIG_HOME/zsh/syntax-highlighting-themes/monokai.ini"
+FAST_WORK_DIR="$XDG_STATE_HOME"/fsh
+source "$ZSH_PLUGIN_DIR"/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+FSH_THEME="$XDG_CONFIG_HOME"/zsh/syntax-highlighting-themes/monokai.ini
 zstyle -T :plugin:fast-syntax-highlighting theme "monokai" || fast-theme "$FSH_THEME" > /dev/null 2>&1  # Re-apply theme if changed
 
 # Zsh Shift Select Mode - Select text in the command line using Shift as in many text editors, browsers and other GUI programs.
-source "$ZSH_PLUGIN_DIR/zsh-shift-select/zsh-shift-select.plugin.zsh"
+source "$ZSH_PLUGIN_DIR"/zsh-shift-select/zsh-shift-select.plugin.zsh
+source "$XDG_CONFIG_HOME"/zsh/shift-select.zsh
 
 #----------------------------------------------------------------
 # Shell Integrations ============================================
 
+eval "$(fzf --zsh)"         # Fuzzy Finder
+eval "$(zoxide init zsh)"   # Zoxide
 eval "$(starship init zsh)" # Starship Prompt
-eval "$(fzf --zsh)" # Fuzzy Finder
-eval "$(zoxide init zsh)" # Zoxide
+
+source /usr/share/nvm/init-nvm.sh # Node Version Manager
+# [ -s "$IDF_PATH"/export.sh ] && \. "$IDF_PATH"/export.sh # ESP-IDF
 
 #----------------------------------------------------------------
 # Starship Transient Prompt =====================================

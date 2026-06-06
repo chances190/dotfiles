@@ -1,0 +1,5 @@
+#!/bin/bash
+/usr/bin/code \
+  --extensions-dir "$XDG_DATA_HOME/vscode/extensions" \
+  --user-data-dir "$XDG_DATA_HOME/vscode/data" \
+  "$@"
