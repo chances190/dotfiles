@@ -2,16 +2,15 @@ window-decoration = client
 window-theme = system
 window-width = 90
 window-height = 30
-background-opacity = 0.8
+background-opacity = 0.7
 background-blur = true
 copy-on-select = false
 selection-invert-fg-bg = true
 cursor-style = bar
 mouse-shift-capture = always
 theme = Monokai Pro Machine
-keybind = ctrl+shift+left=unbind
-keybind = ctrl+shift+right=unbind
 clipboard-read = allow
 clipboard-write = allow
 shell-integration = detect
 shell-integration-features = true
+keybind = ctrl+backspace=text:\x17

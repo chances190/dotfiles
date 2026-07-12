@@ -73,7 +73,7 @@ typeset -gA key=(
     Ctrl+Delete          '^[[3;5~'
     Ctrl+PageUp          '^[[5;5~'
     Ctrl+PageDown        '^[[6;5~'
-    Ctrl+Backspace       '^H'
+    Ctrl+Backspace       '^W'
 
     Ctrl+Shift+Up        '^[[1;6A'
     Ctrl+Shift+Down      '^[[1;6B'
@@ -190,9 +190,15 @@ fi
 source "$ZSH_PLUGIN_DIR"/fzf-tab-git/fzf-tab.plugin.zsh
 zstyle ':fzf-tab:*' fzf-flags '--bind=tab:accept,shift-tab:toggle,left-click:toggle,double-click:accept'
 zstyle ':fzf-tab:*' switch-group '<' '>'
-# Show FZF Preview on completions
-zstyle ':fzf-tab:complete:*:*' fzf-preview 'if [ -d "$realpath" ]; then eza -TL 2 --icons --color=always "$realpath" | head -30; else bat --color=always --style=numbers --line-range=:30 "$realpath"; fi'
 
+# Show FZF Preview on completions (Fixed string interpolation)
+zstyle ':fzf-tab:complete:*:*' fzf-preview '
+    if [ -d $realpath ]; then
+        eza -TL 2 --icons --color=always $realpath | head -30
+    else
+        bat --color=always --style=numbers --line-range=:30 $realpath
+    fi
+'
 
 # ZSH Autosuggestions - It suggests commands as you type based on history and completions
 source "$ZSH_PLUGIN_DIR"/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh

@@ -1,4 +1,5 @@
 {
     "clipboard": "terminal",
-    "colorscheme": "monokai-custom"
+    "colorscheme": "monokai-custom",
+    "mkparents": true
 }
