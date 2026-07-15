@@ -157,7 +157,7 @@ alias cat='bat'
 alias -g -- -h='-h 2>&1 | bat -plhelp'
 alias -g -- --help='--help 2>&1 | bat -plhelp'
 
-alias ls='eza --icons --hyperlink'
+alias ls='eza --icons --hyperlink=auto'
 alias ll='ls -lh'
 alias lt='ls -T'
 
@@ -254,3 +254,5 @@ function transient-prompt() {
     # Use saved transient prompt
     PROMPT="$SAVED_PROMPT" RPROMPT="$SAVED_RPROMPT" zle .reset-prompt
 }
+
+source /home/chances/.config/broot/launcher/bash/br
