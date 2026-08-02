@@ -1,53 +1,51 @@
 ---
 name: adr
-description: Consult and maintain Architecture Decision Records under docs/adr/. Use before work that touches project structure, new dependencies, data models, API contracts, or choosing between design patterns, and when creating or updating such records.
+description: Consult and maintain Architecture Decision Records under docs/adr/. Use before architecture-affecting work, new dependencies, data model changes, or design pattern choices.
 ---
 
-# ADR protocol
+# Architecture Decision Record (ADR) Protocol
 
-Keep one lightweight Architecture Decision Record per significant decision.
+Maintain concise, lightweight decision logs under `docs/adr/`.
 
-## Consult first
+## 1. Consult Phase (Index-First Reading)
+- **Always read `docs/adr/0000-index.md` FIRST.** Do not glob or read all individual ADR files upfront.
+- Read specific record files (`docs/adr/NNNN-*.md`) **only if** the index indicates a title directly affects the active task.
+- Respect `Status: Superseded by NNNN` — read the superseding record instead.
 
-- Before architecture-affecting work, glob `docs/adr/*.md` and read the records that could be touched.
-- Respect `Status: Superseded by NNNN` — read the superseding record.
+## 2. Trigger Criteria (Create When)
+Draft a new ADR **only** when work introduces:
+- A new external dependency (or removing one).
+- Data model or public API contract changes.
+- Selecting a design pattern that alters system boundaries.
 
-## Create when
+## 3. Location & Naming
+- File path: `docs/adr/NNNN-short-hyphenated-title.md`
+- `NNNN` = incremental integer padded to 4 digits (e.g., `0001`, `0002`).
 
-- New dependency, or removing a structural one.
-- Data model or API contract change.
-- Choosing between design patterns/approaches.
-- Any change to repo layout or system boundaries.
-- Any change to a public interface or cross-cutting utility that other code depends on — these always need an ADR and user sign-off.
+## 4. Record Template (Keep under 30 lines)
 
-## Location & naming
-
-- `docs/adr/NNNN-short-title.md`
-- `NNNN` = next number after the highest existing (or `0001`).
-- Title is a short hyphenated slug, e.g. `0002-use-sqlite-for-food-cache.md`.
-
-## Template
-
+```md
 # NNNN. Title
 
 - **Status:** Proposed | Accepted | Superseded by NNNN
 - **Date:** YYYY-MM-DD
 
 ## Context
-
-The problem or requirement forcing a decision.
+[1-2 paragraphs max: What problem or requirement forces this decision?]
 
 ## Decision
-
-The chosen approach.
+[2-3 sentences max: Chosen approach and key implementation boundary.]
 
 ## Consequences
+- **Positive:** [Key benefit]
+- **Negative/Risks:** [Main trade-off or tech debt introduced]
 
-- **Positive:** benefits.
-- **Negative/Risks:** trade-offs or tech debt.
+```
 
-## Lifecycle
+## 5. Index Maintenance Protocol
 
-- Mark `Proposed` → `Accepted` once implemented.
-- Mark `Superseded by NNNN` when replaced.
-- Keep each section a few lines. Update only the ADRs you are touching.
+Whenever creating or updating an ADR, update `docs/adr/0000-index.md`:
+
+* If `docs/adr/0000-index.md` does not exist, create it with a markdown table containing columns: `Number`, `Title`, `Status`, `Date`.
+* **On New ADR:** Append a new row to `0000-index.md` linking to the record.
+* **On Status Change:** Update the status column in `0000-index.md` (e.g., `Proposed` → `Accepted` or `Superseded by NNNN`).

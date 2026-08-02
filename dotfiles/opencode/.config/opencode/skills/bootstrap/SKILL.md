@@ -3,32 +3,67 @@ name: bootstrap
 description: Ground opencode in a repo that lacks agentic scaffolding. Use at the start of a project, or when a repo has no AGENTS.md, ROADMAP.md, or docs/adr. Surveys the repo, writes the project AGENTS.md, seeds ROADMAP.md, and initializes docs/adr/.
 ---
 
-# Project bootstrap
+# Project Bootstrap Protocol
 
-Give opencode the files it needs to stay grounded in a repo.
+Give opencode the structural scaffolding it needs to stay grounded.
 
-## Survey
+## 1. Survey Repository
+- Inspect manifest files (`package.json`, `pyproject.toml`, `Cargo.toml`, `CMakeLists.txt`, etc.), lockfiles, and active dependencies.
+- Inspect `git status`, `git branch`, and `git log --oneline -10`.
+- Identify top-level layout, existing documentation, and diagnostic commands (lint, typecheck, test, build).
 
-- Manifest files (package.json / pyproject.toml / CMakeLists.txt / Cargo.toml …), lockfiles, stack.
-- `git status` and `git log --oneline -10`; note the current branch.
-- Top-level structure; existing docs, specs, or rules.
+## 2. Write Project `AGENTS.md`
+Create `AGENTS.md` at project root containing **project facts only**:
+- Project purpose & tech stack.
+- Package manager & build tools.
+- Diagnostic commands (`lint`, `typecheck`, `test`, `build`).
+- Repository conventions, design patterns (if any) & gotchas (if any).
+*(Workflow rules belong in global AGENTS.md, not here).*
 
-## Write project AGENTS.md
+## 3. Seed `ROADMAP.md`
+Create `ROADMAP.md` at project root using this exact template:
 
-General description of the project's purpose + Stack + package manager + every diagnostic command that exists (lint, typecheck, test, build) + repo conventions + gotchas. Keep it project facts only — workflow rules live in the global AGENTS.md.
+```md
+# Repository Roadmap
 
-## Seed ROADMAP.md
+## Macro Plan
+- **Current Milestone:** [Short Milestone Description]
+- **Goal:** [2-3 sentences on overall macro project direction]
 
-- `## Macro Plan` from the user's stated goal (ask if none is given).
-- `## Active` — the current card with Intent, Acceptance Criteria (DoD), and Out of Scope (empty if starting fresh).
-- `## Done` — objective one-liners for work that already landed.
-- `## Next` — abstract, direction-only one-liners.
-- Roadmap only — no task lists, no mental notes. Active work lives in the todo tool + git.
+---
 
-## Initialize docs/adr/
+## Active Card
+> *There can only be ONE Active card at a time. Finish or push to Next before opening another.*
 
-- Create `docs/adr/` and an index file (`README.md` or `0000-index.md`) if missing.
-- Do not invent ADRs; the `adr` skill creates them on demand.
+### [Card Title: Short Verb Phrase]
+- **Intent:** [2 lines explaining what is being built/replaced and why]
+- **Trade-offs / Risks:** [1-2 bullets on architectural trade-offs or technical constraints]
+- **Acceptance Criteria (DoD):**
+  - [ ] [Example 1: Observable behavior check e.g., `npm test auth` passes]
+  - [ ] [Example 2: Observable CLI / API / Smoke test check]
+  ...
+- **Out of Scope:** [Explicit boundaries on forbidden refactors, extra abstractions, or unrequested features]
+
+---
+
+## Next Cards
+> *Direction-only one-liners for future work in this milestone.*
+
+- **[Card Title]:** [1-line intent]
+...
+
+---
+
+## Done Cards
+> *Completed cards with objective outcomes.*
+
+*(None yet)*
+```
+
+## 4. Initialize `docs/adr/`
+
+- Create directory `docs/adr/`.
+- Create `docs/adr/0000-index.md` containing a simple markdown list for tracking future ADRs.
 
 ## Confirm
 
