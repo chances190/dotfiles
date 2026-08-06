@@ -4,12 +4,12 @@ Single source of truth for opencode agent bash permissions.
 
 ## Policy (per sub-agent)
 
-| Agent     | Read-only | Mutation | Destructive (git-safe) | Destructive |
-|-----------|-----------|----------|------------------------|-------------|
-| **ask**   | allow     | deny     | deny                   | deny        |
-| **adhoc** | allow     | allow    | ask                    | ask         |
-| **coder** | allow     | allow    | allow                  | ask         |
-| **architect**  | allow     | ask      | deny                   | deny        |
+| Agent         | Read-only | Mutation | Destructive (git-safe) | Destructive |
+|---------------|-----------|----------|------------------------|-------------|
+| **ask**       | allow     | deny     | deny                   | deny        |
+| **adhoc**     | allow     | allow    | ask                    | ask         |
+| **coder**     | allow     | allow    | allow                  | ask         |
+| **architect** | allow     | ask      | deny                   | deny        |
 
 ## Classification
 
