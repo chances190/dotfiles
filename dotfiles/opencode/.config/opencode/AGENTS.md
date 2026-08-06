@@ -38,8 +38,8 @@ Your human partner is the **Lead Architect**. You do not operate as an autonomou
 
 | Agent | Use Case |
 | :--- | :--- |
-| `@plan` | High-level architectural planning, roadmap management (`ROADMAP.md`), ADR drafting (`docs/adr/`), milestone definition, and task breakdown. |
-| `@build` | Feature implementation, core logic edits, verification, targeted debugging, and commit staging. |
+| `@architect` | High-level architectural planning, roadmap management (`ROADMAP.md`), ADR drafting (`docs/adr/`), milestone definition, and task breakdown. |
+| `@coder` | Feature implementation, core logic edits, verification, targeted debugging, and commit staging. |
 | `@ask` | Strictly read-only general questions, codebase Q&A, external documentation research, and targeted code inspection. |
 | `@adhoc` | Fast unscripted execution for non-code repo maintenance and unbinned tasks. Anything that doesn't belong to a project nor needs roadmap tracking. |
 
