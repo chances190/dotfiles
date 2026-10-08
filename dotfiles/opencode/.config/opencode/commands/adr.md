@@ -2,4 +2,4 @@
 description: Create or consult Architecture Decision Records (usage: /adr new [context], or /adr query [context])
 agent: architect
 ---
-Consult or create ADRs per your workflow. Request: $ARGUMENTS
+Use the `adr` skill to consult or create ADRs per your workflow. Context: $ARGUMENTS

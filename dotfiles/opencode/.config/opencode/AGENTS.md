@@ -12,6 +12,10 @@ Your human partner is the **Lead Architect**. You do not operate as an autonomou
 - **Scale-Appropriate Architecture:** Avoid both extremes—do NOT write unstructured hacky code ("gambiarra"), but do NOT over-engineer. Choose clean, domain-appropriate patterns suitable for the project's exact scope (e.g., linear data flow, simple modular functions, clean type definitions).
 - **Bold Rip-and-Replace over Defensive Patching:** Never write backward-compatibility shims, deprecated aliases, adapter layers, or timid workarounds. If existing code is over-complicated or blocks clean implementation, delete and rewrite it cleanly. Bold refactoring is expected over patching.
 - **DRY & Net-Negative Code:** Deduplicate logic aggressively. Prefer solutions that consolidate code paths and shrink overall repository line count. Code is both art and a liability; less code is better code.
+- **Comments Explain Why, Never What:** The code already states what it does, a comment that repeats it is noise the reader pays for on every visit. 
+	- **Do NOT write:** Restatements of the function or variable name (`// increment i`, `// returns the list`); narration of your own diff (`// added a null check`; `// now handles the empty case`); decorative section banners; commented-out code; or JSDoc that only re-describes the signature and types.
+	- **Write only for:** A non-obvious constraint or invariant the type system cannot express; a deliberately hacky workaround paired with the reason it exists; 
+	- If removing a comment loses nothing a competent reader could reconstruct in under 30 seconds, don't write it.
 - **Git Usage:**
     - **Branching:** Work on a descriptive branch per milestone.
     - **Conventional Commits:** Use standard tags (`feat:`, `fix:`, `refactor:`, `chore:`, `docs:`, `test:`).

@@ -2,175 +2,177 @@
 description: Strictly read-only general questions, codebase Q&A, external documentation research, and targeted code inspection.
 mode: primary
 color: "#38BDF8"
-permission:
-  # Capability: anything read-only; everything else denied
-  bash:
-    "rtk curl*": "allow"
-    "rtk df*": "allow"
-    "rtk docker images*": "allow"
-    "docker inspect*": "allow"
-    "rtk docker logs*": "allow"
-    "rtk docker ps*": "allow"
-    "rtk du*": "allow"
-    "env": "allow"
-    "fd *": "allow"
-    "file *": "allow"
-    "rtk find*": "allow"
-    "free*": "allow"
-    "rtk gh issue list*": "allow"
-    "rtk gh pr list*": "allow"
-    "rtk gh pr view*": "allow"
-    "rtk git branch*": "allow"
-    "rtk git diff*": "allow"
-    "rtk git log*": "allow"
-    "rtk git show*": "allow"
-    "rtk git stash*": "allow"
-    "rtk git status*": "allow"
-    "rtk git worktree*": "allow"
-    "rtk grep*": "allow"
-    "journalctl*": "allow"
-    "rtk jq*": "allow"
-    "rtk kubectl get*": "allow"
-    "rtk ls*": "allow"
-    "lsof*": "allow"
-    "rtk ping*": "allow"
-    "podman images*": "allow"
-    "podman logs*": "allow"
-    "podman ps*": "allow"
-    "rtk ps*": "allow"
-    "pwd": "allow"
-    "rtk read*": "allow"
-    "rtk rg*": "allow"
-    "rtk meta": "allow"
-    "ss*": "allow"
-    "rtk stat*": "allow"
-    "rtk systemctl status*": "allow"
-    "rtk tree*": "allow"
-    "uname*": "allow"
-    "uptime": "allow"
-    "rtk wc*": "allow"
-    "which *": "allow"
-    "bun build*": "deny"
-    "bun install*": "deny"
-    "bun run*": "deny"
-    "bun test*": "deny"
-    "rtk cargo build*": "deny"
-    "chmod *": "deny"
-    "rtk docker exec*": "deny"
-    "rtk gh issue close*": "deny"
-    "rtk git checkout*": "deny"
-    "rtk git checkout -b*": "deny"
-    "git clone*": "deny"
-    "rtk git fetch*": "deny"
-    "git switch*": "deny"
-    "git tag*": "deny"
-    "rtk git worktree add*": "deny"
-    "rtk go test*": "deny"
-    "rtk gradlew*": "deny"
-    "rtk jest*": "deny"
-    "rtk lint*": "deny"
-    "rtk make*": "deny"
-    "mkdir *": "deny"
-    "rtk mvn*": "deny"
-    "rtk next*": "deny"
-    "npm install*": "deny"
-    "rtk npm run*": "deny"
-    "rtk prettier*": "deny"
-    "rtk pytest*": "deny"
-    "rtk pipe*": "deny"
-    "rtk proxy*": "deny"
-    "rtk trust*": "deny"
-    "rtk untrust*": "deny"
-    "rtk ruff*": "deny"
-    "systemctl disable*": "deny"
-    "systemctl enable*": "deny"
-    "systemctl reload*": "deny"
-    "systemctl start*": "deny"
-    "touch *": "deny"
-    "rtk tsc*": "deny"
-    "uv run*": "deny"
-    "rtk vitest*": "deny"
-    "rtk wget*": "deny"
-    "cp *": "deny"
-    "rtk git add*": "deny"
-    "git rm*": "deny"
-    "rtk git stash apply*": "deny"
-    "rtk git stash branch*": "deny"
-    "rtk git stash pop*": "deny"
-    "rtk git stash push*": "deny"
-    "rtk git stash save*": "deny"
-    "mv *": "deny"
-    "rm *": "deny"
-    "rm -rf*": "deny"
-    "apt *": "deny"
-    "chown *": "deny"
-    "rtk curl --request*": "deny"
-    "rtk curl -X DELETE*": "deny"
-    "rtk curl -X POST*": "deny"
-    "rtk curl -X PUT*": "deny"
-    "docker compose*": "deny"
-    "docker rm*": "deny"
-    "docker rmi*": "deny"
-    "docker stop*": "deny"
-    "rtk gh pr merge*": "deny"
-    "rtk git branch --delete*": "deny"
-    "rtk git branch --move*": "deny"
-    "rtk git branch --set-upstream-to*": "deny"
-    "rtk git branch -D*": "deny"
-    "rtk git branch -d*": "deny"
-    "rtk git branch -m*": "deny"
-    "rtk git checkout -- *": "deny"
-    "rtk git checkout -f*": "deny"
-    "rtk git checkout .*": "deny"
-    "git cherry-pick*": "deny"
-    "git clean*": "deny"
-    "rtk git commit*": "deny"
-    "git merge*": "deny"
-    "rtk git pull*": "deny"
-    "rtk git push*": "deny"
-    "git rebase*": "deny"
-    "git reset*": "deny"
-    "git restore*": "deny"
-    "git revert*": "deny"
-    "rtk git stash clear*": "deny"
-    "rtk git stash drop*": "deny"
-    "git tag --delete*": "deny"
-    "git tag -d*": "deny"
-    "rtk git worktree remove*": "deny"
-    "kill *": "deny"
-    "killall *": "deny"
-    "rtk kubectl apply*": "deny"
-    "kubectl delete*": "deny"
-    "rtk make install*": "deny"
-    "mount *": "deny"
-    "pacman *": "deny"
-    "paru *": "deny"
-    "pip install*": "deny"
-    "pkill *": "deny"
-    "podman compose*": "deny"
-    "podman rm*": "deny"
-    "podman run*": "deny"
-    "podman stop*": "deny"
-    "rmdir *": "deny"
-    "rtk rsync*": "deny"
-    "rtk run *": "deny"
-    "scp *": "deny"
-    "rtk ssh*": "deny"
-    "sudo *": "deny"
-    "systemctl restart*": "deny"
-    "systemctl stop*": "deny"
-    "umount *": "deny"
-    "yay *": "deny"
-  edit: deny
-  glob: deny
-  grep: deny
-  list: deny
-  read: allow
-  skill: allow
-  task: deny
-  todowrite: deny
-  webfetch: allow
-  websearch: allow
+permissions:
+  - { "action": "shell", "resource": "curl*", "effect": "allow" }
+  - { "action": "shell", "resource": "df*", "effect": "allow" }
+  - { "action": "shell", "resource": "docker images*", "effect": "allow" }
+  - { "action": "shell", "resource": "docker inspect*", "effect": "allow" }
+  - { "action": "shell", "resource": "docker logs*", "effect": "allow" }
+  - { "action": "shell", "resource": "docker ps*", "effect": "allow" }
+  - { "action": "shell", "resource": "du*", "effect": "allow" }
+  - { "action": "shell", "resource": "env", "effect": "allow" }
+  - { "action": "shell", "resource": "fd *", "effect": "allow" }
+  - { "action": "shell", "resource": "file *", "effect": "allow" }
+  - { "action": "shell", "resource": "find*", "effect": "allow" }
+  - { "action": "shell", "resource": "free*", "effect": "allow" }
+  - { "action": "shell", "resource": "gh issue list*", "effect": "allow" }
+  - { "action": "shell", "resource": "gh pr list*", "effect": "allow" }
+  - { "action": "shell", "resource": "gh pr view*", "effect": "allow" }
+  - { "action": "shell", "resource": "git branch*", "effect": "allow" }
+  - { "action": "shell", "resource": "git diff*", "effect": "allow" }
+  - { "action": "shell", "resource": "git log*", "effect": "allow" }
+  - { "action": "shell", "resource": "git show*", "effect": "allow" }
+  - { "action": "shell", "resource": "git stash*", "effect": "allow" }
+  - { "action": "shell", "resource": "git status*", "effect": "allow" }
+  - { "action": "shell", "resource": "git worktree*", "effect": "allow" }
+  - { "action": "shell", "resource": "grep*", "effect": "allow" }
+  - { "action": "shell", "resource": "journalctl*", "effect": "allow" }
+  - { "action": "shell", "resource": "jq*", "effect": "allow" }
+  - { "action": "shell", "resource": "kubectl get*", "effect": "allow" }
+  - { "action": "shell", "resource": "ls*", "effect": "allow" }
+  - { "action": "shell", "resource": "lsof*", "effect": "allow" }
+  - { "action": "shell", "resource": "ping*", "effect": "allow" }
+  - { "action": "shell", "resource": "podman images*", "effect": "allow" }
+  - { "action": "shell", "resource": "podman logs*", "effect": "allow" }
+  - { "action": "shell", "resource": "podman ps*", "effect": "allow" }
+  - { "action": "shell", "resource": "ps*", "effect": "allow" }
+  - { "action": "shell", "resource": "pwd", "effect": "allow" }
+  - { "action": "shell", "resource": "read*", "effect": "allow" }
+  - { "action": "shell", "resource": "rg*", "effect": "allow" }
+  - { "action": "shell", "resource": "meta", "effect": "allow" }
+  - { "action": "shell", "resource": "ss*", "effect": "allow" }
+  - { "action": "shell", "resource": "stat*", "effect": "allow" }
+  - { "action": "shell", "resource": "systemctl status*", "effect": "allow" }
+  - { "action": "shell", "resource": "tree*", "effect": "allow" }
+  - { "action": "shell", "resource": "uname*", "effect": "allow" }
+  - { "action": "shell", "resource": "uptime", "effect": "allow" }
+  - { "action": "shell", "resource": "wc*", "effect": "allow" }
+  - { "action": "shell", "resource": "which *", "effect": "allow" }
+  - { "action": "shell", "resource": "bun build*", "effect": "deny" }
+  - { "action": "shell", "resource": "bun install*", "effect": "deny" }
+  - { "action": "shell", "resource": "bun run*", "effect": "deny" }
+  - { "action": "shell", "resource": "bun test*", "effect": "deny" }
+  - { "action": "shell", "resource": "cargo build*", "effect": "deny" }
+  - { "action": "shell", "resource": "chmod *", "effect": "deny" }
+  - { "action": "shell", "resource": "docker exec*", "effect": "deny" }
+  - { "action": "shell", "resource": "gh issue close*", "effect": "deny" }
+  - { "action": "shell", "resource": "git checkout*", "effect": "deny" }
+  - { "action": "shell", "resource": "git checkout -b*", "effect": "deny" }
+  - { "action": "shell", "resource": "git clone*", "effect": "deny" }
+  - { "action": "shell", "resource": "git fetch*", "effect": "deny" }
+  - { "action": "shell", "resource": "git switch*", "effect": "deny" }
+  - { "action": "shell", "resource": "git tag*", "effect": "deny" }
+  - { "action": "shell", "resource": "git worktree add*", "effect": "deny" }
+  - { "action": "shell", "resource": "go test*", "effect": "deny" }
+  - { "action": "shell", "resource": "gradlew*", "effect": "deny" }
+  - { "action": "shell", "resource": "jest*", "effect": "deny" }
+  - { "action": "shell", "resource": "lint*", "effect": "deny" }
+  - { "action": "shell", "resource": "make*", "effect": "deny" }
+  - { "action": "shell", "resource": "mkdir *", "effect": "deny" }
+  - { "action": "shell", "resource": "mvn*", "effect": "deny" }
+  - { "action": "shell", "resource": "next*", "effect": "deny" }
+  - { "action": "shell", "resource": "npm install*", "effect": "deny" }
+  - { "action": "shell", "resource": "npm run*", "effect": "deny" }
+  - { "action": "shell", "resource": "prettier*", "effect": "deny" }
+  - { "action": "shell", "resource": "pytest*", "effect": "deny" }
+  - { "action": "shell", "resource": "pipe*", "effect": "deny" }
+  - { "action": "shell", "resource": "proxy*", "effect": "deny" }
+  - { "action": "shell", "resource": "trust*", "effect": "deny" }
+  - { "action": "shell", "resource": "untrust*", "effect": "deny" }
+  - { "action": "shell", "resource": "ruff*", "effect": "deny" }
+  - { "action": "shell", "resource": "systemctl disable*", "effect": "deny" }
+  - { "action": "shell", "resource": "systemctl enable*", "effect": "deny" }
+  - { "action": "shell", "resource": "systemctl reload*", "effect": "deny" }
+  - { "action": "shell", "resource": "systemctl start*", "effect": "deny" }
+  - { "action": "shell", "resource": "touch *", "effect": "deny" }
+  - { "action": "shell", "resource": "tsc*", "effect": "deny" }
+  - { "action": "shell", "resource": "uv run*", "effect": "deny" }
+  - { "action": "shell", "resource": "vitest*", "effect": "deny" }
+  - { "action": "shell", "resource": "wget*", "effect": "deny" }
+  - { "action": "shell", "resource": "cp *", "effect": "deny" }
+  - { "action": "shell", "resource": "git add*", "effect": "deny" }
+  - { "action": "shell", "resource": "git rm*", "effect": "deny" }
+  - { "action": "shell", "resource": "git stash apply*", "effect": "deny" }
+  - { "action": "shell", "resource": "git stash branch*", "effect": "deny" }
+  - { "action": "shell", "resource": "git stash pop*", "effect": "deny" }
+  - { "action": "shell", "resource": "git stash push*", "effect": "deny" }
+  - { "action": "shell", "resource": "git stash save*", "effect": "deny" }
+  - { "action": "shell", "resource": "mv *", "effect": "deny" }
+  - { "action": "shell", "resource": "rm *", "effect": "deny" }
+  - { "action": "shell", "resource": "rm -rf*", "effect": "deny" }
+  - { "action": "shell", "resource": "apt *", "effect": "deny" }
+  - { "action": "shell", "resource": "chown *", "effect": "deny" }
+  - { "action": "shell", "resource": "curl --request*", "effect": "deny" }
+  - { "action": "shell", "resource": "curl -X DELETE*", "effect": "deny" }
+  - { "action": "shell", "resource": "curl -X POST*", "effect": "deny" }
+  - { "action": "shell", "resource": "curl -X PUT*", "effect": "deny" }
+  - { "action": "shell", "resource": "docker compose*", "effect": "deny" }
+  - { "action": "shell", "resource": "docker rm*", "effect": "deny" }
+  - { "action": "shell", "resource": "docker rmi*", "effect": "deny" }
+  - { "action": "shell", "resource": "docker stop*", "effect": "deny" }
+  - { "action": "shell", "resource": "gh pr merge*", "effect": "deny" }
+  - { "action": "shell", "resource": "git branch --delete*", "effect": "deny" }
+  - { "action": "shell", "resource": "git branch --move*", "effect": "deny" }
+  - { "action": "shell", "resource": "git branch --set-upstream-to*", "effect": "deny" }
+  - { "action": "shell", "resource": "git branch -D*", "effect": "deny" }
+  - { "action": "shell", "resource": "git branch -d*", "effect": "deny" }
+  - { "action": "shell", "resource": "git branch -m*", "effect": "deny" }
+  - { "action": "shell", "resource": "git checkout -- *", "effect": "deny" }
+  - { "action": "shell", "resource": "git checkout -f*", "effect": "deny" }
+  - { "action": "shell", "resource": "git checkout .*", "effect": "deny" }
+  - { "action": "shell", "resource": "git cherry-pick*", "effect": "deny" }
+  - { "action": "shell", "resource": "git clean*", "effect": "deny" }
+  - { "action": "shell", "resource": "git commit*", "effect": "deny" }
+  - { "action": "shell", "resource": "git merge*", "effect": "deny" }
+  - { "action": "shell", "resource": "git pull*", "effect": "deny" }
+  - { "action": "shell", "resource": "git push*", "effect": "deny" }
+  - { "action": "shell", "resource": "git rebase*", "effect": "deny" }
+  - { "action": "shell", "resource": "git reset*", "effect": "deny" }
+  - { "action": "shell", "resource": "git restore*", "effect": "deny" }
+  - { "action": "shell", "resource": "git revert*", "effect": "deny" }
+  - { "action": "shell", "resource": "git stash clear*", "effect": "deny" }
+  - { "action": "shell", "resource": "git stash drop*", "effect": "deny" }
+  - { "action": "shell", "resource": "git tag --delete*", "effect": "deny" }
+  - { "action": "shell", "resource": "git tag -d*", "effect": "deny" }
+  - { "action": "shell", "resource": "git worktree remove*", "effect": "deny" }
+  - { "action": "shell", "resource": "kill *", "effect": "deny" }
+  - { "action": "shell", "resource": "killall *", "effect": "deny" }
+  - { "action": "shell", "resource": "kubectl apply*", "effect": "deny" }
+  - { "action": "shell", "resource": "kubectl delete*", "effect": "deny" }
+  - { "action": "shell", "resource": "make install*", "effect": "deny" }
+  - { "action": "shell", "resource": "mount *", "effect": "deny" }
+  - { "action": "shell", "resource": "pacman *", "effect": "deny" }
+  - { "action": "shell", "resource": "paru *", "effect": "deny" }
+  - { "action": "shell", "resource": "pip install*", "effect": "deny" }
+  - { "action": "shell", "resource": "pkill *", "effect": "deny" }
+  - { "action": "shell", "resource": "podman compose*", "effect": "deny" }
+  - { "action": "shell", "resource": "podman rm*", "effect": "deny" }
+  - { "action": "shell", "resource": "podman run*", "effect": "deny" }
+  - { "action": "shell", "resource": "podman stop*", "effect": "deny" }
+  - { "action": "shell", "resource": "rmdir *", "effect": "deny" }
+  - { "action": "shell", "resource": "rsync*", "effect": "deny" }
+  - { "action": "shell", "resource": "run *", "effect": "deny" }
+  - { "action": "shell", "resource": "scp *", "effect": "deny" }
+  - { "action": "shell", "resource": "ssh*", "effect": "deny" }
+  - { "action": "shell", "resource": "sudo *", "effect": "deny" }
+  - { "action": "shell", "resource": "systemctl restart*", "effect": "deny" }
+  - { "action": "shell", "resource": "systemctl stop*", "effect": "deny" }
+  - { "action": "shell", "resource": "umount *", "effect": "deny" }
+  - { "action": "shell", "resource": "yay *", "effect": "deny" }
+  - { "action": "edit", "resource": "*", "effect": "deny" }
+  - { "action": "glob", "resource": "*", "effect": "deny" }
+  - { "action": "grep", "resource": "*", "effect": "deny" }
+  - { "action": "list", "resource": "*", "effect": "deny" }
+  - { "action": "read", "resource": "*", "effect": "allow" }
+  - { "action": "skill", "resource": "*", "effect": "allow" }
+  - { "action": "subagent", "resource": "*", "effect": "deny" }
+  - { "action": "todowrite", "resource": "*", "effect": "deny" }
+  - { "action": "webfetch", "resource": "*", "effect": "allow" }
+  - { "action": "websearch", "resource": "*", "effect": "allow" }
+
+  # MCP tools
+  - { "action": "context7_*", "resource": "*", "effect": "allow" }
+  - { "action": "shadcn_*", "resource": "*", "effect": "allow" }
 ---
 
 # AGENT GOAL: Codebase & Research Advisor
