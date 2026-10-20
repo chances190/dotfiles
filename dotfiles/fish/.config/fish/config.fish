@@ -23,8 +23,7 @@ set -gx DOCKER_HOST unix://"$XDG_RUNTIME_DIR"/podman/podman.sock
 
 ### ---- AI Tools ----
 set -gx OPENROUTER_API_KEY (secret-tool lookup api openrouter)
-set -gx COPILOT_CONFIG_PATH "$XDG_DATA_HOME"/copilot/config.json
-set -gx CLAUDE_CONFIG_DIR "$XDG_DATA_HOME"/claude
+set -gx GEMINI_API_KEY (secret-tool lookup api gemini)
 
 ### ---- Development Environments ----
 # Rust
@@ -51,6 +50,7 @@ set -gx DOTNET_CLI_HOME "$XDG_DATA_HOME"/dotnet
 # Embedded / Hardware (ESP-IDF & PlatformIO)
 set -gx IDF_PATH /opt/espressif/esp-idf/v5.4.2
 set -gx IDF_TOOLS_PATH /opt/espressif/idf-tools
+set -gx IDF_PYTHON_ENV_PATH /opt/espressif/idf-tools/python_env/idf5.4_py3.14_env
 set -gx PLATFORMIO_CORE_DIR "$XDG_DATA_HOME"/platformio
 
 
